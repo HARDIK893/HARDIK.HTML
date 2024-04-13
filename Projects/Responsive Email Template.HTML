@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Email Template</title>
+    <style>
+        /* Client-specific Styles */
+        body, table, td, a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        table,td {
+            background-color: aqua;
+            color: black;
+        }
+        img {
+            -ms-interpolation-mode: bicubic;
+        }
+
+        /* Reset Styles */
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        }
+        table {
+            border-collapse: collapse !important;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        @media screen and (max-width: 600px) {
+            body {
+                font-size: 12px;
+            }
+        }
+        /* Main Styles */
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        .header img {
+            max-width: 100%;
+        }
+        .content {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://via.placeholder.com/200" alt="Logo">
+        </div>
+        <div class="content">
+            <h1>Welcome to Our Newsletter!</h1>
+            <p>Thank you for subscribing to our newsletter. Here's what's new:</p>
+            <ul>
+                <li>Exciting updates</li>
+                <li>Special offers</li>
+                <li>Useful tips</li>
+            </ul>
+            <p>Stay tuned for more!</p>
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Company Name. All rights reserved.</p>
+        </div>
+    </div>
+</body>
+</html>

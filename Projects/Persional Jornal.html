@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Journal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        input[type="datetime-local"] {
+            font-size: 14px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .entry {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personal Journal</h1>
+        <div id="entries"></div>
+        <div class="entry">
+            <textarea id="entryText" placeholder="Write your journal entry here"></textarea>
+            <input type="datetime-local" id="entryDate">
+            <button onclick="addEntry()">Add Entry</button>
+        </div>
+    </div>
+
+    <script>
+        function addEntry() {
+            var entryText = document.getElementById("entryText").value;
+            var entryDate = document.getElementById("entryDate").value;
+            if (entryText.trim() === "") {
+                alert("Please enter your journal entry.");
+                return;
+            }
+            var entryHTML = `
+                <div class="entry">
+                    <p>${entryText}</p>
+                    <p><strong>Date:</strong> ${formatDate(entryDate)}</p>
+                </div>
+            `;
+            document.getElementById("entries").innerHTML += entryHTML;
+            // Clear input fields
+            document.getElementById("entryText").value = "";
+            document.getElementById("entryDate").value = "";
+        }
+
+        function formatDate(dateString) {
+            var date = new Date(dateString);
+            var options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' };
+            return date.toLocaleDateString('en-US', options);
+        }
+    </script>
+</body>
+</html>

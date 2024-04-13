@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Diary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .entry {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+        }
+        .entry textarea {
+            width: 100%;
+            height: 100px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .entry input[type="date"] {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Online Diary</h1>
+        <div id="entries"></div>
+        <div class="entry">
+            <textarea id="entryText" placeholder="Write your entry here"></textarea>
+            <input type="date" id="entryDate">
+            <button onclick="addEntry()">Add Entry</button>
+        </div>
+    </div>
+
+    <script>
+        function addEntry() {
+            var entryText = document.getElementById("entryText").value;
+            var entryDate = document.getElementById("entryDate").value;
+            if (entryText.trim() === "") {
+                alert("Please enter your diary entry.");
+                return;
+            }
+            var entryHTML = `
+                <div class="entry">
+                    <p>${entryText}</p>
+                    <p><strong>Date:</strong> ${entryDate}</p>
+                </div>
+            `;
+            document.getElementById("entries").innerHTML += entryHTML;
+            // Clear input fields
+            document.getElementById("entryText").value = "";
+            document.getElementById("entryDate").value = "";
+        }
+    </script>
+</body>
+</html>
